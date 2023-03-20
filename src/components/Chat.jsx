@@ -28,7 +28,6 @@ const Chat = () => {
   useEffect(() => {
     socket.on('message', ({ data }) => {
       setState((prev) => [...prev, data])
-      console.log(data)
     })
   }, [])
   useEffect(() => {
@@ -36,8 +35,6 @@ const Chat = () => {
       setUsers(users.length)
     })
   }, [])
-
-  console.log(state)
 
   const leftRoom = () => {
     socket.emit('leftRoom', { params })
@@ -95,6 +92,7 @@ const Chat = () => {
             </div>
           )}
         </div>
+        {/* поменять кнопку */}
         <div className={styles.button}>
           <input type="submit" onSubmit={handleSubmit} value="Send a message" />
         </div>
